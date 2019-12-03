@@ -1,4 +1,4 @@
-package br.com.caelum.livraria.bean;
+package br.com.caelum.livraria.bean.modelo;
 
 import javax.faces.bean.ManagedBean;
 

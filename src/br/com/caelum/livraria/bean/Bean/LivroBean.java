@@ -1,4 +1,6 @@
-package br.com.caelum.livraria.bean;
+package br.com.caelum.livraria.bean.Bean;
+
+import br.com.caelum.livraria.bean.modelo.Livro;
 
 public class LivroBean {
     private Livro livro = new Livro();
