@@ -11,14 +11,14 @@
         <f:view>
             <h:panelGrid columns="2">
                 <h:outputLabel value="Titulo:" for="titulo"/>
-                <h:inputText id="titulo" value="#{livro.titulo}"/>
+                <h:inputText id="titulo" value="#{livroBean.livro.titulo}"/>
                 <h:outputLabel value="ISBN:" for="isbn"/>
-                <h:inputText id="isbn" value="#{livro.isbn}"/>
+                <h:inputText id="isbn" value="#{livroBean.livro.isbn}"/>
                 <h:outputLabel value="Preço:" for="preco"/>
-                <h:inputText id="preco" value="#{livro.preco}"/>
+                <h:inputText id="preco" value="#{livroBean.livro.preco}"/>
                 <h:outputLabel value="Data de Lançamento:" for="dataLancamento"/>
-                <h:inputText id="dataLancamento" value="#{livro.dataLancamento}"/>
-                <h:commandButton value="gravar" action="#{livro.gravar}"/>
+                <h:inputText id="dataLancamento" value="#{livroBean.livro.dataLancamento}"/>
+                <h:commandButton value="gravar" action="#{livroBean.gravar}"/>
             </h:panelGrid>
         </f:view>
     </h:form>

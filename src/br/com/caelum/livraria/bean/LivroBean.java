@@ -14,10 +14,15 @@ public class LivroBean {
         return livro;
     }
 
-    public void gravar(){
-        System.out.println("Gravando Livro: "+this.livro.getTitulo());
+    public void gravar() {
+        System.out.println("Gravando Livro: " + this.livro.getTitulo());
 
-        if(livro.getAutores().isEmpty()){
+        System.out.println("Gravando Preco: " + this.livro.getPreco());
+        if (this.livro.getPreco() > 20) {
+            throw new RuntimeException("Preco nao pode ser maior que 20");
+        }
+
+        if (livro.getAutores().isEmpty()) {
             throw new RuntimeException("Livro deve ter pelo menos um autor.");
         }
 
