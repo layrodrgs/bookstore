@@ -7,12 +7,11 @@ import javax.persistence.Persistence;
 public class JPAUtil {
 
     private static EntityManagerFactory emf = Persistence
-            .createEntityManagerFactory("Livraria");
+            .createEntityManagerFactory("livraria");
 
     public EntityManager getEntityManager() {
         return emf.createEntityManager();
     }
-
     public void close(EntityManager em) {
         em.close();
     }

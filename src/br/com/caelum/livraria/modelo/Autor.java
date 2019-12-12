@@ -9,7 +9,6 @@ public class Autor {
 
     @Id
     @GeneratedValue
-
     private Integer id;
     private String nome;
 
