@@ -39,6 +39,16 @@ public class DAO<T> {
         em.close();
     }
 
+    public void atualiza(T t) {
+        EntityManager em = new JPAUtil().getEntityManager();
+        em.getTransaction().begin();
+
+        em.merge(t);
+
+        em.getTransaction().commit();
+        em.close();
+    }
+
     public List<T> listaTodos() {
         EntityManager em = new JPAUtil().getEntityManager();
         javax.persistence.criteria.CriteriaQuery<T> query = em.getCriteriaBuilder().createQuery(classe);

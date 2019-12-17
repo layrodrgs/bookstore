@@ -21,7 +21,7 @@ public class Livro implements Serializable {
     @Temporal(TemporalType.DATE)
     private Calendar dataLancamento = Calendar.getInstance();
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     private List<Autor> autores = new ArrayList<Autor>();
 
     public List<Autor> getAutores() {
@@ -29,9 +29,7 @@ public class Livro implements Serializable {
     }
 
     public void adicionaAutor(Autor autor) {
-        if (!this.autores.contains(autor)) {
-            this.autores.add(autor);
-        }
+        this.autores.add(autor);
     }
 
     public Livro() {
@@ -77,7 +75,7 @@ public class Livro implements Serializable {
         this.dataLancamento = dataLancamento;
     }
 
-    public void setAutores(List<Autor> autores)  {
-        this.autores = autores;
+    public void removeAutor(Autor autor) {
+        this.autores.remove(autor);
     }
 }
