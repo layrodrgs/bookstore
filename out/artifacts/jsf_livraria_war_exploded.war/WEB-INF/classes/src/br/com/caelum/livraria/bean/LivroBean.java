@@ -20,9 +20,14 @@ public class LivroBean implements Serializable {
 
     private Livro livro = new Livro();
     private Integer autorId;
+    private Integer livroId;
 
     public void setLivro(Livro livro) {
         this.livro = livro;
+    }
+
+    public Livro getLivro() {
+        return livro;
     }
 
     public Integer getAutorId() {
@@ -33,8 +38,12 @@ public class LivroBean implements Serializable {
         this.autorId = autorId;
     }
 
-    public Livro getLivro() {
-        return livro;
+    public Integer getLivroId() {
+        return livroId;
+    }
+
+    public void setLivroId(Integer livroId) {
+        this.livroId = livroId;
     }
 
     public List<Livro> getLivros() {
@@ -106,5 +115,9 @@ public class LivroBean implements Serializable {
             throw new Exception("ISBN deveria começar com 1");
         }
 
+    }
+
+    public void carregarLivroPelaId() {
+        this.livro = new DAO<Livro>(Livro.class).buscaPorId(livroId);
     }
 }

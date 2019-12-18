@@ -12,9 +12,26 @@ import java.util.List;
 public class AutorBean {
 
     private Autor autor = new Autor();
+    private Integer autorId;
+
+    public void setAutor(Autor autor) {
+        this.autor = autor;
+    }
 
     public Autor getAutor(){
         return autor;
+    }
+
+    public Integer getAutorId() {
+        return autorId;
+    }
+
+    public void setAutorId(Integer autorId) {
+        this.autorId = autorId;
+    }
+
+    public void carregarAutorPelaId(){
+        this.autor = new DAO<Autor>(Autor.class).buscaPorId(autorId);
     }
 
     public List<Autor> getAutores() {
@@ -32,7 +49,7 @@ public class AutorBean {
 
         this.autor = new Autor();
 
-        return "livro?faces-redirect=true";
+        return "index?faces-redirect=true";
     }
 
     public void carregar(Autor autor) {

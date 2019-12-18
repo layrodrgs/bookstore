@@ -6,33 +6,45 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:ui="http://java.sun.com/jsf/facelets">
 
-<ui:composition>
-   <ui:define name="titulo">
-       Novo Autor
-   </ui:define>
+<ui:composition template="_template.xhtml">
+    <f:metadata>
+        <f:viewParam name="autorId" value="#{autorBean.autorId}"/>
+        <f:viewAction action="#{autorBean.carregarAutorPelaId}" if="#{param.autorId != null}"/>
+    </f:metadata>
+
+    <ui:define name="titulo">
+        Novo Autor
+    </ui:define>
 
     <ui:define name="texto">
         Cadastro de Autores
     </ui:define>
 
     <ui:define name="conteudo">
-    <h:form id="autor">
-        <fieldset>
-            <legend>Dados do Autor</legend>
-            <h:panelGrid columns="3">
-                <h:outputLabel value="Nome:" for="nome"/>
-                <h:inputText id="nome" value="#{autorBean.autor.nome}" required="true">
-                    <f:validateLength minimum="5"/>
-                    <f:ajax event="blur" render="messageNome"/>
-                </h:inputText>
+        <h:form id="autor">
+            <fieldset>
+                <legend>Dados do Autor</legend>
+                <h:panelGrid columns="3">
 
-                <h:message for="nome" id="messageNome"/>
+                    <h:outputLabel value="Nome:" for="nome"/>
+                    <h:inputText id="nome" value="#{autorBean.autor.nome}" required="true">
+                        <f:validateLength minimum="5"/>
+                        <f:ajax event="blur" render="messageNome"/>
+                    </h:inputText>
 
-                <h:commandButton value="Gravar" action="#{autorBean.gravar}"/>
+                    <h:message for="nome" id="messageNome"/>
 
-            </h:panelGrid>
-        </fieldset>
-    </h:form>
+                    <h:outputLabel value="Email:" for="email"/>
+                    <h:inputText id="email" value="#{autorBean.autor.email}" required="true">
+                        <f:passThroughAttribute name="type" value="email"/>
+                    </h:inputText>
+
+                    <h:message for="email" id="messageEmail"/>
+
+                    <h:commandButton value="Gravar" action="#{autorBean.gravar}"/>
+                </h:panelGrid>
+            </fieldset>
+        </h:form>
     </ui:define>
 </ui:composition>
 </html>
