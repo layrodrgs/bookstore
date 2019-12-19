@@ -5,6 +5,7 @@ import br.com.caelum.livraria.dao.UsuarioDao;
 import br.com.caelum.livraria.modelo.Autor;
 import br.com.caelum.livraria.modelo.Usuario;
 
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
@@ -24,18 +25,19 @@ public class LoginBean {
     public String efetuaLogin() {
         System.out.println("Fazendo login do usuário "
                 + this.usuario.getEmail());
-
+        FacesContext context = FacesContext.getCurrentInstance();
 
         boolean existe = new UsuarioDao().existe(this.usuario);
         if (existe) {
-            FacesContext context = FacesContext.getCurrentInstance();
             context.getExternalContext().getSessionMap()
                     .put("usuarioLogado", this.usuario);
 
             return "index?faces-redirect=true";
         }
 
-        return null;
+        context.getExternalContext().getFlash().setKeepMessages(true);
+        context.addMessage(null, new FacesMessage("Usuario nao encontrado"));
+        return "login?faces-redirect=true";
     }
     public String deslogar(){
         FacesContext context = FacesContext.getCurrentInstance();

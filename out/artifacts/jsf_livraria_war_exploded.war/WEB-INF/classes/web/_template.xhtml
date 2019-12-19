@@ -12,7 +12,7 @@
             <h:graphicImage library="img" name="logo.png"/>
 
             <h:form rendered="#{usuarioLogado != null}">
-                <h:commandLink value="Logout" action="#{loginBean.deslogar}"/>
+                <h:commandButton value="Logout" action="#{loginBean.deslogar}"/>
             </h:form>
             <h1>
                 <ui:insert name="titulo">
