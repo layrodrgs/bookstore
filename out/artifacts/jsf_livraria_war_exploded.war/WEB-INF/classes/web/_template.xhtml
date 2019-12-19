@@ -2,29 +2,30 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
 
-<head>
-    <h:body>
-        <div id="Cabeçalho">
-            <h:graphicImage library="img" name="logo.png"/>
+<h:head>
 
-            <h:form rendered="#{usuarioLogado != null}">
-                <h:commandButton value="Logout" action="#{loginBean.deslogar}"/>
-            </h:form>
-            <h1>
-                <ui:insert name="titulo">
-                </ui:insert>
-            </h1>
-        </div>
+</h:head>
+<h:body>
+    <div id="Cabeçalho">
+        <h:graphicImage library="img" name="logo.png"/>
 
-        <div id="conteudo">
-            <ui:insert name="conteudo">
+        <h:form rendered="#{usuarioLogado != null}">
+            <h:commandButton value="Logout" action="#{loginBean.deslogar}"/>
+        </h:form>
+        <h1>
+            <ui:insert name="titulo">
             </ui:insert>
-        </div>
-    </h:body>
-</head>
+        </h1>
+    </div>
 
+    <div id="conteudo">
+        <ui:insert name="conteudo">
+        </ui:insert>
+    </div>
+</h:body>
 </html>

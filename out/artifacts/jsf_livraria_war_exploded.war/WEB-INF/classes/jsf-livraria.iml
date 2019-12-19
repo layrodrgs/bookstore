@@ -41,8 +41,8 @@
     <orderEntry type="library" name="jboss-transaction-api_1.1_spec-1.0.0.Final" level="project" />
     <orderEntry type="library" name="validation-api-1.0.0.GA" level="project" />
     <orderEntry type="library" name="mysql-connector-java-5.1.47" level="project" />
-    <orderEntry type="library" name="dom4j-1.6.1" level="project" />
     <orderEntry type="library" name="jsf-livraria" level="project" />
     <orderEntry type="library" name="javax.faces-2.2.13" level="project" />
+    <orderEntry type="library" name="primefaces-6.2" level="project" />
   </component>
 </module>
