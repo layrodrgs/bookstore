@@ -56,8 +56,8 @@
             <fieldset>
                 <legend>Dados do Autor</legend>
 
-                <h:outputLabel value="Selecione Autor:" for="autor"/>
-                <h:selectOneMenu value="#{livroBean.autorId}">
+                <h:outputLabel value="Selecione Autor:" for="tabelaAutores"/>
+                <h:selectOneMenu value="#{livroBean.autorId}" id="autor">
                     <f:selectItems value="#{livroBean.autores}" var="autor"
                                    itemLabel="#{autor.nome}" itemValue="#{autor.id}"/>
                 </h:selectOneMenu>
@@ -67,7 +67,7 @@
 
                 <br/>
 
-                <h:commandButton value="Cadastrar novo autor" action="#{livroBean.formAutor}"/>
+                <h:commandButton value="Cadastrar novo autor" action="#{livroBean.formAutor}" immediate="true"/>
 
                 <h:dataTable value="#{livroBean.autoresDoLivro}" var="autor"
                              id="tabelaAutores">
